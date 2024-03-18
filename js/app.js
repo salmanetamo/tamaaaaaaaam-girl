@@ -4,6 +4,7 @@ import Scene from "./rolls";
 import gsap from "gsap";
 
 const scene = new Scene("container");
+const DURATION_OF_UNFOLDING = 180;
 
 // helper functions
 const MathUtils = {
@@ -78,16 +79,16 @@ class Item {
 
         this.isVisible = entry.intersectionRatio > 0.0;
 
-        this.shouldRollBack = false;
+        this.shouldRollBack = true;
         this.shouldUnRoll = false;
-        if (
-          entry.intersectionRatio < 0.5 &&
-          entry.boundingClientRect.y > 0 &&
-          this.isVisible &&
-          !down
-        ) {
-          this.shouldRollBack = true;
-        }
+        // if (
+        //   entry.intersectionRatio < 0.5 &&
+        //   entry.boundingClientRect.y > 0 &&
+        //   this.isVisible &&
+        //   !down
+        // ) {
+        //   this.shouldRollBack = true;
+        // }
 
         if (
           entry.intersectionRatio > 0.5 &&
@@ -230,7 +231,7 @@ class SmoothScroll {
               value: 0
             },
             {
-              duration: 2,
+              duration: DURATION_OF_UNFOLDING,
               value: 1,
               ease: "power2.out",
               onUpdate: () => {
@@ -349,7 +350,7 @@ preloadImages.then(images => {
 const preloadEverything = [fontStarling, fontParalucent, preloadImages];
 
 // And then..
-Promise.all(preloadEverything).then(() => {
+export default () => Promise.all(preloadEverything).then(() => {
   // Remove the loader
   document.body.classList.remove("loading");
   document.body.classList.add("loaded");

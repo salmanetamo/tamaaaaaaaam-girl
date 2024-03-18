@@ -12,7 +12,7 @@
 
 body {
 	--color-text: #000;
-	--color-bg: #dde8eb;
+	--color-bg: #ffd9e3;
 	--color-link: #4b4b4b;
 	--color-link-hover: #000;
 	color: var(--color-text);
@@ -157,7 +157,7 @@ canvas {
 }
 
 .section {
-	padding: 20vh 0;
+	padding: 0;
 	margin: 0 100px;
 	min-height: 100vh;
 }
@@ -328,13 +328,13 @@ canvas {
 
 /*last*/
 .last {
-	margin: 100px auto 0 auto;
+	margin: 0 auto 0 auto;
 	text-align: center;
 	padding-bottom: 30vh;
 }
 
 .last__image {
-	max-width: 480px;
+	max-width: 1000px;
 	margin: 0 auto;
 }
 
@@ -359,7 +359,7 @@ canvas {
 }
 
 .buttons {
-	margin-bottom: 100px;
+	margin-bottom: 10px;
 }
 
 
